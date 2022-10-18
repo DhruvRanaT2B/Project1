@@ -23,16 +23,24 @@ const listItem = () => {
       id={item.id}
       width={item.width}
       height={item.height}
-      url={item.url}
+      uri={item.url}
       download_url={item.download_url}
     />
   );
 
   return (
-    <View>
+    <View style={{}}>
       {loading && <Loading />}
       {/* Main */}
-      {!loading && <FlatList data={data} renderItem={renderItem} />}
+      {!loading && (
+        <View style={{alignItem: 'ceneter', margin: 20}}>
+          <FlatList
+            vertical
+            data={data}
+            renderItem={item => renderItem(item)}
+          />
+        </View>
+      )}
     </View>
   );
 };
