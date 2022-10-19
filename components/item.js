@@ -1,22 +1,31 @@
 import {StyleSheet, Text, View, Image, Button} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
 import DownloadScreen from './DownloadScreen.js';
 
-const Stack = createNativeStackNavigator();
 const Item = ({width, height, url, title, id, uri, download_url}) => {
-  // const [imageUrl, setimageUrl] = useState(item.url);
-  useEffect(() => {
-    console.log(uri);
-  }, []);
-
+  const NavigateTo = () => {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={DownloadScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  };
   return (
     <View style={{}} key={id}>
       <Image
         style={{width: width / 10, height: height / 10}}
         source={{
-          uri: uri,
+          uri: download_url,
         }}
       />
       <Text>{title}</Text>
@@ -26,6 +35,7 @@ const Item = ({width, height, url, title, id, uri, download_url}) => {
           color="#B1AFFF"
           onPress={() => {
             console.log('Hello');
+            NavigateTo();
           }}
         />
       </View>
