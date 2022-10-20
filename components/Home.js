@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <View>
       {/* AppBar  */}
-      <AppBar />
+      <AppBar title="Project 1" />
       {/* ScrollView  */}
       <ListItem />
     </View>

@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-const Appbar = () => {
+const Appbar = ({title}) => {
   return (
     <View style={style.container}>
-      <Text style={style.title}>Project 1</Text>
+      <Text style={style.title}>{title}</Text>
     </View>
   );
 };
